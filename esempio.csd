@@ -17,6 +17,13 @@ ksmps = 10
 nchnls = 1
 0dbfs = 32767
 
+# Strumenti
+; Uno strumento semplice.
+instr Oscillatore
+	aout oscils 10000, 440, 0
+	out aout
+endin
+
 </CsInstruments>
 
 <CsScore>
