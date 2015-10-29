@@ -19,7 +19,8 @@ nchnls = 2
 ;; Strumenti
 ; Uno strumento semplice.
 instr 1
-	aout oscils 10000, 440, 1
+	kamp	line p5, p3, p6
+	aout	oscil kamp, p4, p7
 	outs aout, aout
 endin
 
@@ -29,13 +30,16 @@ endin
 
 <CsScore>
 
-;strumento, init, dur, freq,  vol
-i1                    1     1     220     10000
-i1                    2     1     261     5000
-i1                    3     1     293.7  2500
-i1                    4     1     329.6  1200
-i1                    5     1     392     600
-i1                    6     1     440     300
+;f1	0	4096	10	1
+;f2	0	4096	10	1	0	0.2	0.1	0.05
+
+;strumento, init, dur, freq,  line-init  line-end  waveform
+i1                    1     1     220     10000   10000      -1
+i1                    2     1     261     5000      10000     -1
+i1                    3     1     293.7  2500     10000     -1
+i1                    4     1     329.6  1200     10000     -1
+i1                    5     1     392     600        10000     -1
+i1                    6     3    440     0              40000    -1
 e
 
 </CsScore>
