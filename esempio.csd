@@ -5,28 +5,31 @@
 
 <CsInstruments>
 
-# Intestazione
+;; Intestazione
 ; Sampling rate: frequenza di campionamento in Hz.
 ; KR: frequenza di calcolo delle variabile di controllo.
 ; Ksmps: numero di campioni per periodo di controllo. (Non è necesario specificarlo)
 ; Nchnls: numero di canali.
 ; 0DB: valore 0db per i picchi di ampiezza.
 sr = 44100
-kr = 4410
-ksmps = 10
-nchnls = 1
+ksmps = 64
+nchnls = 2
 0dbfs = 32767
 
-# Strumenti
+;; Strumenti
 ; Uno strumento semplice.
-instr Oscillatore
-	aout oscils 10000, 440, 0
-	out aout
+instr 1
+	aout oscils 10000, 440, 1
+	outs aout, aout
 endin
 
 </CsInstruments>
 
 <CsScore>
+
+i1 1 1
+i1 3 1
+e
 
 </CsScore>
 
