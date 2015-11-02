@@ -14,18 +14,34 @@ ksmps = 64
 nchnls = 2
 0dbfs = 32767
 
+; Rumore bianco
 instr 1
-	arand rand p4
+	arand   rand  p4
 	outs arand, arand
+endin
+
+; Rumore buzz
+instr 2
+	kharms line   p6, p3, p7
+	abuzz   buzz p4, p5, kharms, 1
+	outs abuzz,abuzz
 endin
 
 </CsInstruments>
 <CsScore>
 
-; inst	init	end     vol
-i1	0	1	30000
-i1	2	2	30000
+; funzione sinosoidale
+f1    0   16384   10   1
 
+; Rumore Bianco
+; inst	init	dur     vol          freq    fun
+i1	0	1	30000   110
+
+; Buzz Aditivo
+; inst   init      dur    vol           freq   harm>harm
+i2	2	3	30000   130    1  17   
+i2        5          2         30000   130    17  17
+e
 
 </CsScore>
 </CsoundSynthesizer>
