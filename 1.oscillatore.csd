@@ -27,8 +27,9 @@ endin
 
 <CsScore>
 
-i1 1 1
-i1 3 1
+;strumento ;init ;dur
+i1                 1       1
+i1                 3       1
 e
 
 </CsScore>
