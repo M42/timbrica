@@ -18,26 +18,45 @@ nchnls = 2
 ; ELENCO DEGLI STRUMENTI
 ; 1. Oscillatore semplice
 instr 1
-	aout oscil 32000, p4
+	aout oscili 15000, p4, 1
+	outs aout,aout
+endin
+
+instr 2
+	aout oscili 15000, p4, 2
 	outs aout,aout
 endin
 
 </CsInstruments>
 <CsScore>
+f1 0 16384 10 1                                                                            ; Sine
+f2 0 16384 10 1 0.5 0.3 0.25 0.2 0.167 0.14 0.125 .111   ; Sawtooth
+f3 0 16384 10 1 0   0.3 0    0.2 0     0.14 0     .111                ; Square
+f4 0 16384 10 1 1   1   1    0.7 0.5   0.3  0.1                           ; Pulse
 
-; 2. Polyphony
+; 3. Multiple Instruments
+; 4. Parameters
+s
+i2 0 1 440
+i1 2 1 660
+i1 4 2 440
+i2 4 2 660
 
 
 ; 1. Notes and Rests
+s
 i1 0   2  220
-i1 +1 2 220
+i1 1 2 220
 
-i1 4 2 220
-i1 4.5  2  <
-i1 5  2 <
-i1 5.5  2  <
-i1 6  2  880
+; 2. Polyphony
+s
+i1 0 2 220
+i1 0.5  2  <
+i1 1  2 <
+i1 1.5  2  <
+i1 2  2  880
 
+e
 </CsScore>
 </CsoundSynthesizer>
 <bsbPanel>
