@@ -14,16 +14,17 @@ ksmps = 64
 nchnls = 2
 0dbfs = 32767
 
+#define VOL #10000#
 
 ; ELENCO DEGLI STRUMENTI
-; 1. Oscillatore semplice
 instr 1
-	aout oscili 15000, p4, 1
+	aout oscili $VOL, p4, 1
 	outs aout,aout
 endin
 
-instr 2
-	aout oscili 15000, p4, 2
+instr 2, sawtooth
+	ifreq init p4
+	aout oscili $VOL, ifreq, 2
 	outs aout,aout
 endin
 
@@ -36,8 +37,12 @@ f4 0 16384 10 1 1   1   1    0.7 0.5   0.3  0.1                           ; Puls
 
 ; 3. Multiple Instruments
 ; 4. Parameters
+; 5. Assign
+; 6. Sections
+; 7. Instrument Labels
+; 8. Simple macros
 s
-i2 0 1 440
+i"sawtooth" 0 1 440
 i1 2 1 660
 i1 4 2 440
 i2 4 2 660
