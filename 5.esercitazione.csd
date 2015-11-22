@@ -15,6 +15,7 @@ nchnls = 2
 0dbfs = 32767
 
 #define VOL #10000#
+#define OUTS(VAL) #outs $VAL,$VAL#
 
 ; ELENCO DEGLI STRUMENTI
 instr 1
@@ -25,7 +26,7 @@ endin
 instr 2, sawtooth
 	ifreq init p4
 	aout oscili $VOL, ifreq, 2
-	outs aout,aout
+	$OUTS(aout)
 endin
 
 </CsInstruments>
@@ -35,12 +36,21 @@ f2 0 16384 10 1 0.5 0.3 0.25 0.2 0.167 0.14 0.125 .111   ; Sawtooth
 f3 0 16384 10 1 0   0.3 0    0.2 0     0.14 0     .111                ; Square
 f4 0 16384 10 1 1   1   1    0.7 0.5   0.3  0.1                           ; Pulse
 
+; 10. Carry
+; 11. Sort
+s
+i1 3 1 400
+i2 4 1 600
+i1 0 .  .
+i2 1 . .
+
 ; 3. Multiple Instruments
 ; 4. Parameters
 ; 5. Assign
 ; 6. Sections
 ; 7. Instrument Labels
 ; 8. Simple macros
+; 9. Macros with arguments
 s
 i"sawtooth" 0 1 440
 i1 2 1 660
