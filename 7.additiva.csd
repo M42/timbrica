@@ -16,8 +16,8 @@ nchnls = 2
 
 #define VOL #32000#
 
-	; Dente di sega. Sintesi additiva
-	instr 1
+	; Clarineto
+	instr 1			; approssimazione di onda a dente di sega
 	aout1	oscil 	10, p4
 	aout2	oscil 	5, p4 * 2
 	aout3	oscil 	3.3, p4 * 3
@@ -29,9 +29,10 @@ nchnls = 2
 	aout9	oscil 	1.1, p4 * 9
 	aout10	oscil 	1, p4 * 10
 	isum = 10 + 5 + 3.3 + 2.5 + 2 + 1.6 + 1.4 + 1.25 + 1.1 + 1
-	inorm = $VOL/ isum
-	atotal = inorm * (aout1 + aout2 + aout3 + aout4 + aout5 + aout6 + aout7 + aout8 + aout9 + aout10)
-	outs 	atotal,atotal
+	inorm = 32000 / isum
+	kamp 	linen 	inorm, 0.1, p3, p3 - 0.1
+	atot = kamp * (aout1 + aout2 + aout3 + aout4 + aout5 + aout6 + aout7 + aout8 + aout9 + aout10)
+	outs atot,atot 	
 	endin
 
 	; Interferenza destruttiva. Non suona niente (!)
@@ -49,8 +50,19 @@ nchnls = 2
 			out 	aout1 + aout2
 	endin
 
+
+		
+
 </CsInstruments>
 <CsScore>
+	
+	s	
+		
+	i1	0	1	220
+	i1	+	.	330
+	i1	+	.	440
+	i1	+	.	660
+	i1	+	2	880
 	
 	s	
 
@@ -65,13 +77,7 @@ nchnls = 2
 	i2       0 1 220
 	i2       + .  330
 	
-	s	
 
-	i1	0	1	220
-	i1	+	.	330
-	i1	+	.	440
-	i1	+	.	660
-	i1	+	2	880
  
 	e
 	 
