@@ -59,13 +59,16 @@ instr 5
 	ain soundin "gigi.wav"
 	krms rms ain
 	kfreq expseg 100, p3, 20000	
-	afil butterbp ain, kfreq, 200
+	afil butterbp ain, kfreq, 50
 	aout gain afil, krms
 	outs aout,aout
 endin
 
 </CsInstruments>
 <CsScore>
+
+; Esempio Butterworth
+i5 0 14
 
 ; Esempio passa-basso
 i4 0 20
