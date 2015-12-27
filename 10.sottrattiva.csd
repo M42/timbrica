@@ -19,13 +19,13 @@ nchnls = 2
 instr 1
 	asin1	oscil	30000, 220
 	asin2 = asin1 / 10
-	aout	balance	asin2, asin1
-	outs	aout,aout
+	aout 	balance	asin2, asin1
+	outs	 aout,aout
 endin
 
 instr 2
-	aout	rand	p4, 0.5
-		outs aout,aout
+	aout 	rand 	p4, 0.5
+		 outs aout,aout
 endin
 
 </CsInstruments>

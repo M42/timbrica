@@ -1,9 +1,9 @@
-<CsoundSynthesizer>
+ <CsoundSynthesizer>
 <CsOptions>
 </CsOptions>
 <CsInstruments>
 
-;; Intestazione
+;; Intestazione 
 ; Sampling rate: frequenza di campionamento in Hz.
 ; KR: frequenza di calcolo delle variabile di controllo.
 ; Ksmps: numero di campioni per periodo di controllo. (Non è necesario specificarlo)
@@ -38,7 +38,7 @@ endin
 instr 3
 	kbanda	linseg	1, p3/2, 1, p3/2, 200
 	kfreq		linseg	440, p3/2, 660, p3/2, 660
-	anoise	rand	10000
+	anoise	rand	 10000
 	krms	  rms		 anoise
 	afilt	reson	anoise, kfreq, kbanda
 	aout 	gain 	afilt, krms
