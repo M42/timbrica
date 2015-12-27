@@ -41,12 +41,28 @@ instr 2
      	 outs    asig, asig
 endin
 
+; Inviluppo di quattro fasi
+instr 3
+	ifrq = cpspch(p5)
+	iamp = ampdb(p4)
+	k1	envlpx	iamp, .2, p3, .2,p6, .5, .05
+	a1	oscil	k1, ifrq, 1
+		out		a1
+endin
+
 </CsInstruments>
 <CsScore>
 
-;sine wave.
-f 1 0 32768 10 1
+; sine wave.
+f1 0 32768 10 1
+; custom attack
+f2	0 	4097	 7	0	2102	.873	856	.426	1139	1
 
+s
+i3	0	2	80	8.00 2
+i3	+	1	82	8.02 2
+i3	+	.	84	8.04 2
+i3	+	4	84	8.05 2
 s
 i1 0 2
 s
